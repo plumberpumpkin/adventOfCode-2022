@@ -1,13 +1,11 @@
 mod day_one;
 
 fn main() {
-    //here come the inputs for the 
+    //here come the inputs for the
     let mut day: u16 = 1;
-    
+
     const INPUT_DAY_ONE: &str = "123";
 
-
-    
     println!("Advent of Code - Day {}", day);
     day_one::part_one();
     day_one::part_two();
@@ -27,5 +25,4 @@ fn main() {
 
     println!("Advent of Code - Day {}", day);
     day += 1;
-
 }
