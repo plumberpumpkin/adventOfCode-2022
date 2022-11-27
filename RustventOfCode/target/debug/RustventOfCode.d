@@ -1,0 +1,1 @@
+C:\Users\User\GitHub\adventOfCode-2022\RustventOfCode\target\debug\RustventOfCode.exe: C:\Users\User\GitHub\adventOfCode-2022\RustventOfCode\src\day_one.rs C:\Users\User\GitHub\adventOfCode-2022\RustventOfCode\src\main.rs
