@@ -4,7 +4,7 @@ fn main() {
     //here come the inputs for the
     let mut day: u16 = 1;
 
-    const INPUT_DAY_ONE: &str = "123";
+    
 
     println!("Advent of Code - Day {}", day);
     day_one::part_one();
