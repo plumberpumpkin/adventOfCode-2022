@@ -48,9 +48,16 @@ pub fn part_one() {
         }
      }
 
+     let mut max_calories:u32 = 0;
+     let mut target_elf: u32 = 0;
      for item in elf_list{
-        println!("{}, {}", item.0, item.1);
+        if max_calories < item.1 {
+            target_elf = item.0;
+            max_calories = item.1;
+        }
+        //println!("{}, {}", item.0, item.1);
      }
+     println!("Elf no. {} carried most with {} calories in total", target_elf, max_calories);
 
 
     
