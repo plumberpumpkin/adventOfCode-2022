@@ -48,7 +48,7 @@ pub fn part_one() {
     );
 }
 pub fn part_two() {
-        const INPUT_FILE: &str =
+    const INPUT_FILE: &str =
         r"C:\Users\User\GitHub\adventOfCode-2022\rustvent_of_code\src\inputs\day_one.txt";
 
     let mut current_elf: (u32, u32) = (0, 0);
@@ -78,14 +78,28 @@ pub fn part_two() {
             calories_carried = 0;
         }
     }
-
     elf_list.sort();
-    println!("1. Place: {}, {}", elf_list[elf_list.len()-1].0 , elf_list[elf_list.len()-1].1);
-    println!("{}, {}", elf_list[elf_list.len()-2].0 , elf_list[elf_list.len()-2].1);
-    println!("{}, {}", elf_list[elf_list.len()-3].0 , elf_list[elf_list.len()-3].1);
-    let total_snack_reserve: u32 = elf_list[elf_list.len()-1].0 + elf_list[elf_list.len() - 2].0 + elf_list[elf_list.len() - 3].0;
+    println!(
+        "1. Place: {}, {}",
+        elf_list[elf_list.len() - 1].0,
+        elf_list[elf_list.len() - 1].1
+    );
+    println!(
+        "2. Place: {}, {}",
+        elf_list[elf_list.len() - 2].0,
+        elf_list[elf_list.len() - 2].1
+    );
+    println!(
+        "3. Place: {}, {}",
+        elf_list[elf_list.len() - 3].0,
+        elf_list[elf_list.len() - 3].1
+    );
+    let total_snack_reserve: u32 = elf_list[elf_list.len() - 1].0
+        + elf_list[elf_list.len() - 2].0
+        + elf_list[elf_list.len() - 3].0;
 
-    println!("The total snack reserve contains {} caloires", total_snack_reserve);
-
-
+    println!(
+        "The total snack reserve contains {} caloires",
+        total_snack_reserve
+    );
 }
