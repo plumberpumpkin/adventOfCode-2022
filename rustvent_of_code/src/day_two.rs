@@ -31,6 +31,7 @@ pub fn part_one() {
         let mut draw = false;
         let mut loose = false;
 
+        //Outcome
         if input[0] == "A" && input[1] == "Y"
             || input[0] == "B" && input[1] == "Z"
             || input[0] == "C" && input[1] == "X"
@@ -56,6 +57,15 @@ pub fn part_one() {
         } else if loose {
             score += 0;
         }
+
+        //add points from shape
+        match &input[1] as &str{
+            "X" => score += 1,
+            "Y" => score += 2,
+            "Z" => score += 3,
+            _ => panic!("This should not happen")
+        }
+
         println!("Current line count: {}", linecount);
         linecount += 1;
         println!("Current score: {}", score);
@@ -63,4 +73,5 @@ pub fn part_one() {
 
     println!("Your score is: {}", score);
 }
+
 pub fn part_two() {}
