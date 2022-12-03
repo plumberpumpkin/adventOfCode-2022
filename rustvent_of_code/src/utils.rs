@@ -2,17 +2,14 @@
 use std::fs::File;
 use std::io::{self, BufRead, BufReader};
 
-    pub fn header(input: (u16, u16) ) -> (u16, u16){
+pub fn header(input: (u16, u16)) -> (u16, u16) {
+    println!("Advent of Code - Day {}", input.1);
+    return (1, 1);
+}
 
-        println!("Advent of Code - Day {}", input.1);
-        return (1, 1);
-    }
-    
-    pub fn read_input_file(path: &str) -> BufReader<File>{
-        
-        let file = File::open(path).unwrap();
-        let reader = BufReader::new(file);
-    
-        return reader;
-    }
+pub fn read_input_file(path: &str) -> BufReader<File> {
+    let file = File::open(path).unwrap();
+    let reader = BufReader::new(file);
 
+    return reader;
+}
