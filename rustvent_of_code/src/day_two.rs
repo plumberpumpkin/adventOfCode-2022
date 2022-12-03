@@ -83,7 +83,6 @@ pub fn part_two() {
     //read single line and split into two parts
     //initilize result value
     let mut score: u32 = 0;
-    let mut linecount = 1;
     for line in reader.lines() {
         let input: Vec<String> = line
             .unwrap()
@@ -103,18 +102,47 @@ pub fn part_two() {
         let mut draw = false;
         let mut loose = false;
 
+        let mut opponentA = false;
+        let mut opponentB = false;
+        let mut opponentC = false;
+
         //set outcome of round
         match &input[1] as &str {
-            "X" => score += 0,
+            "X" => (score += 0),
             "Y" => score += 1,
             "Z" => score += 3,
             _ => panic!("Should not happen"),
         }
 
-       //identify shape to choose 
-       //based on opponent & wanted outcome
+        match &input[1] as &str {
+            "X" => loose = true,
+            "Y" => draw = true,
+            "Z" => win = true,
+            _ => panic!("Should not happen"),
+        }
 
-        
+        match &input[0] as &str {
+            "A" => opponentA = true,
+            "B" => opponentB = true,
+            "C" => opponentC = true,
+            _ => panic!("Should not happen"),
+        }
+        //identify shape to choose
+        //based on opponent & wanted outcome
+        //choose paper if A && win / B && draw / C && loose
+        //choose Scissors if A && loose / B && win / C && draw
+        //choose rock if A && draw / B && loose / C && win
+
+        if opponentA && win || opponentB && draw || opponentC && loose {
+            //choose paper & score 2 points
+            score += 2;
+        } else if opponentA && loose || opponentB && win || opponentC && draw {
+            //choose rock & score 3 points
+            score += 3;
+        } else if opponentA && draw || opponentB && loose || opponentC && win {
+            //choose rock & score 1 point
+            score += 1;
+        }
     }
     println!("Stage 2 Score: {}", score);
 }
