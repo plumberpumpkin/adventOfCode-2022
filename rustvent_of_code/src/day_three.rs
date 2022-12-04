@@ -16,27 +16,31 @@ pub fn part_one() {
     for line in file.lines() {
         let rucksack_content: String = line.unwrap();
         let compartment = rucksack_content.split_at(rucksack_content.len() / 2);
-        println!(
-            "Compartment 1 has {} items, compartment 2 has {} items",
-            compartment.0.len(),
-            compartment.1.len()
-        );
-        //iterate over first compartment to find item of same type in the second compartment 
-        for item in compartment.0.chars(){
+
+        //iterate over first compartment to find item of same type in the second compartment
+        for item in compartment.0.chars() {
             let index = compartment.1.find(item);
             if index != None {
                 relevant_chars.push(item);
                 break;
-
             }
         }
-
-        //calculate priorities based on characters
-        let mut priorities: u16 = 0;
-        for item in &relevant_chars {
-
-        }
     }
+    //calculate priorities based on characters
+    let mut priorities: u32 = 0;
+    for item in relevant_chars {
+        let mut prio = item as u32;
+
+        if item.is_ascii_uppercase() {
+            //priorities of uppercase starts at 27 (vs. ascii codepoint 65 for A)
+            prio -= 38;
+        } else {
+            prio -= 96;
+        }
+        priorities += prio;
+    }
+
+    println!("Total sum of priorities is {}", priorities);
 }
 
 pub fn part_two() {}
