@@ -24,6 +24,17 @@ pub fn part_one() {
             compartment.0.len(),
             compartment.1.len()
         );
+        //iterate over first compartment
+        for item in compartment.0.chars(){
+            let index = compartment.1.find(item);
+            if index != None {
+                relevant_chars.push(item);
+                break;
+
+            }
+            
+
+        }
     }
 }
 
