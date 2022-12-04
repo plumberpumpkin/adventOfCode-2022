@@ -14,9 +14,6 @@ pub fn part_one() {
     //initilize intermediate vector
     let mut relevant_chars: Vec<char> = Vec::new();
     for line in file.lines() {
-        //store line
-        //get line length
-        //split line in half
         let rucksack_content: String = line.unwrap();
         let compartment = rucksack_content.split_at(rucksack_content.len() / 2);
         println!(
@@ -24,7 +21,7 @@ pub fn part_one() {
             compartment.0.len(),
             compartment.1.len()
         );
-        //iterate over first compartment
+        //iterate over first compartment to find item of same type in the second compartment 
         for item in compartment.0.chars(){
             let index = compartment.1.find(item);
             if index != None {
@@ -32,7 +29,11 @@ pub fn part_one() {
                 break;
 
             }
-            
+        }
+
+        //calculate priorities based on characters
+        let mut priorities: u16 = 0;
+        for item in &relevant_chars {
 
         }
     }
