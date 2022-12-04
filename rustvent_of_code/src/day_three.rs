@@ -43,4 +43,19 @@ pub fn part_one() {
     println!("Total sum of priorities is {}", priorities);
 }
 
-pub fn part_two() {}
+pub fn part_two() {
+    const INPUT_FILE: &str =
+    r"C:\Users\User\GitHub\adventOfCode-2022\rustvent_of_code\src\inputs\day_three.txt";
+    let file = super::utils::read_input_file(INPUT_FILE);
+    //read lines from file
+    //create vector to work with
+    let mut rucksack_content: Vec<String> = Vec::new();
+    for rucksack in file.lines(){
+        let content = rucksack.unwrap();
+        rucksack_content.push(content);
+    }
+    //select three rucksacks at a time and compare items
+    
+
+
+}
