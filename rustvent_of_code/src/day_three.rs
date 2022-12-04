@@ -13,8 +13,17 @@ pub fn part_one() {
 
     //initilize intermediate vector
     let mut relevant_chars: Vec<char> = Vec::new();
-    for line in file.lines(){
-        
+    for line in file.lines() {
+        //store line
+        //get line length
+        //split line in half
+        let rucksack_content: String = line.unwrap();
+        let compartment = rucksack_content.split_at(rucksack_content.len() / 2);
+        println!(
+            "Compartment 1 has {} items, compartment 2 has {} items",
+            compartment.0.len(),
+            compartment.1.len()
+        );
     }
 }
 
