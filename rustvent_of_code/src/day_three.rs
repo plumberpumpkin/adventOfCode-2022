@@ -49,13 +49,63 @@ pub fn part_two() {
     let file = super::utils::read_input_file(INPUT_FILE);
     //read lines from file
     //create vector to work with
+    //create result_vector
     let mut rucksack_content: Vec<String> = Vec::new();
+    let mut relevant_items: Vec<char> = Vec::new();
+    let mut priorities = 0;
+
     for rucksack in file.lines(){
         let content = rucksack.unwrap();
         rucksack_content.push(content);
     }
     //select three rucksacks at a time and compare items
-    
+    let mut first = 0;
+    let mut second = 1; 
+    let mut third =2;
+    let mut possible_items: Vec<char> = Vec::new();
+
+    while third < 300 {
+        let rucksack_one = &rucksack_content[first];
+        let rucksack_two = &rucksack_content[second];
+        let rucksack_three = &rucksack_content[third];
+        for item in rucksack_one.chars(){
+            let index = rucksack_two.find(item);
+            if index != None{
+                possible_items.push(item);
+            }
+        }
+
+        for item in &possible_items{
+            let index = rucksack_three.find(*item);
+            if index != None {
+                relevant_items.push(*item);
+                first += 3;
+                second += 3;
+                third += 3;
+                break;
+            }
+        }
+    }
+
+
+    for item in &relevant_items{
+        println!("Item is {}", item);
+    }
+    println!("Length is {}", &relevant_items.len());
+
+    //calculate priorities
+    for item in &relevant_items {
+        let mut prio = *item as u32;
+
+        if item.is_ascii_uppercase() {
+            //priorities of uppercase starts at 27 (vs. ascii codepoint 65 for A)
+            prio -= 38;
+        } else {
+            prio -= 96;
+        }
+        priorities += prio;
+    }
+    println!("Sum of priorities is {}", &priorities);
 
 
 }
