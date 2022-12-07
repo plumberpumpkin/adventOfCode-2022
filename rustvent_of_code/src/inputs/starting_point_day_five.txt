@@ -1,0 +1,9 @@
+D;H;R;Z;S;P;W;Q
+F;H;Q;W;R;B;V
+H;S;V;C
+G;F;H
+Z;B;J;G;P
+L;F;W;H;J;T;Q
+N;J;V;L;D;W;T;Z
+F;H;G;J;C;Z;T;D
+H;B;M;V;P;W

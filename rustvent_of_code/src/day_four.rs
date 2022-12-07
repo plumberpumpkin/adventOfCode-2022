@@ -60,8 +60,8 @@ pub fn part_two() {
         // two fully contained in one
         if (range_two[0] >= range_one[0] && range_two[1] <= range_one[1])
             || (range_one[0] >= range_two[0] && range_one[1] <= range_two[1])
-            || (range_one[0]<=range_two[0] && range_one[1] >= range_two[0])
-            || (range_two[0]<=range_one[0] && range_two[1] >= range_one[0])
+            || (range_one[0] <= range_two[0] && range_one[1] >= range_two[0])
+            || (range_two[0] <= range_one[0] && range_two[1] >= range_one[0])
         {
             overlapping_assignments += 1;
         }
