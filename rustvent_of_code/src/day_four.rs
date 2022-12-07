@@ -10,9 +10,15 @@ pub fn part_one(){
     let mut containing_counter: u32 = 0;
 
     for line in file.lines(){
-        let assignment_one = line.split('-').unwrap();
+        let assignments: Vec<&str> = line.unwrap().split(",").collect();
+        
+        
         
     }
 
+
+}
+
+pub fn part_two(){
 
 }
