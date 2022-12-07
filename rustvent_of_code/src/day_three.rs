@@ -45,7 +45,7 @@ pub fn part_one() {
 
 pub fn part_two() {
     const INPUT_FILE: &str =
-    r"C:\Users\User\GitHub\adventOfCode-2022\rustvent_of_code\src\inputs\day_three.txt";
+        r"C:\Users\User\GitHub\adventOfCode-2022\rustvent_of_code\src\inputs\day_three.txt";
     let file = super::utils::read_input_file(INPUT_FILE);
     //read lines from file
     //create vector to work with
@@ -54,28 +54,28 @@ pub fn part_two() {
     let mut relevant_items: Vec<char> = Vec::new();
     let mut priorities = 0;
 
-    for rucksack in file.lines(){
+    for rucksack in file.lines() {
         let content = rucksack.unwrap();
         rucksack_content.push(content);
     }
     //select three rucksacks at a time and compare items
     let mut first = 0;
-    let mut second = 1; 
-    let mut third =2;
+    let mut second = 1;
+    let mut third = 2;
     let mut possible_items: Vec<char> = Vec::new();
 
     while third < 300 {
         let rucksack_one = &rucksack_content[first];
         let rucksack_two = &rucksack_content[second];
         let rucksack_three = &rucksack_content[third];
-        for item in rucksack_one.chars(){
+        for item in rucksack_one.chars() {
             let index = rucksack_two.find(item);
-            if index != None{
+            if index != None {
                 possible_items.push(item);
             }
         }
 
-        for item in &possible_items{
+        for item in &possible_items {
             let index = rucksack_three.find(*item);
             if index != None {
                 relevant_items.push(*item);
@@ -87,8 +87,7 @@ pub fn part_two() {
         }
     }
 
-
-    for item in &relevant_items{
+    for item in &relevant_items {
         println!("Item is {}", item);
     }
     println!("Length is {}", &relevant_items.len());
@@ -106,6 +105,4 @@ pub fn part_two() {
         priorities += prio;
     }
     println!("Sum of priorities is {}", &priorities);
-
-
 }
