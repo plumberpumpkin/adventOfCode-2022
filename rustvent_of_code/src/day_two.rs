@@ -1,5 +1,5 @@
 use std::fs::File;
-use std::io::{self, BufRead, BufReader};
+use std::io::{BufRead, BufReader};
 
 pub fn part_one() {
     //define input file location
@@ -14,7 +14,7 @@ pub fn part_one() {
     //read single line and split into two parts
     //initilize result value
     let mut score: u32 = 0;
-    let mut linecount = 1;
+    let mut _linecount = 1;
     for line in reader.lines() {
         let input: Vec<String> = line
             .unwrap()
@@ -102,9 +102,9 @@ pub fn part_two() {
         let mut draw = false;
         let mut loose = false;
 
-        let mut opponentA = false;
-        let mut opponentB = false;
-        let mut opponentC = false;
+        let mut _opponent_a = false;
+        let mut _opponent_b = false;
+        let mut _opponent_c = false;
 
         //set outcome of round
         match &input[1] as &str {
@@ -122,9 +122,9 @@ pub fn part_two() {
         }
 
         match &input[0] as &str {
-            "A" => opponentA = true,
-            "B" => opponentB = true,
-            "C" => opponentC = true,
+            "A" => _opponent_a = true,
+            "B" => _opponent_b = true,
+            "C" => _opponent_c = true,
             _ => panic!("Should not happen"),
         }
         //identify shape to choose
@@ -133,13 +133,13 @@ pub fn part_two() {
         //choose Scissors if A && loose / B && win / C && draw
         //choose rock if A && draw / B && loose / C && win
 
-        if opponentA && win || opponentB && draw || opponentC && loose {
+        if _opponent_a && win || _opponent_b && draw || _opponent_c && loose {
             //choose paper & score 2 points
             score += 2;
-        } else if opponentA && loose || opponentB && win || opponentC && draw {
+        } else if _opponent_a && loose || _opponent_b && win || _opponent_c && draw {
             //choose rock & score 3 points
             score += 3;
-        } else if opponentA && draw || opponentB && loose || opponentC && win {
+        } else if _opponent_a && draw || _opponent_b && loose || _opponent_c && win {
             //choose rock & score 1 point
             score += 1;
         }

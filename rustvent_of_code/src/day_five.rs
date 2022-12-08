@@ -2,7 +2,7 @@ use std::io::BufReader;
 
 use std::fs::File;
 use std::io::BufRead;
-use std::thread::current;
+
 
 pub fn part_one() {
     const MOVING_INSTRUCTIONS: &str = r"C:\Users\User\GitHub\adventOfCode-2022\rustvent_of_code\src\inputs\moving_instructions.txt";
@@ -18,7 +18,7 @@ pub fn part_one() {
             .collect();
         supply_stack.push(current_stack);
     }
-    let mut instructions: Vec<Vec<u32>> = Vec::new();
+    let mut instructions: Vec<Vec<usize>> = Vec::new();
     let movement_set = super::utils::read_input_file(MOVING_INSTRUCTIONS);
     //deconstruct moving instructions
     for instruction in movement_set.lines() {
@@ -32,11 +32,20 @@ pub fn part_one() {
         work_input_str.remove(2);
         work_input_str.remove(0);
         //convert to int value
-        let work_input: Vec<u32> = work_input_str.iter().map(|x| x.parse().unwrap()).collect();
+        let work_input: Vec<usize> = work_input_str.iter().map(|x| x.parse().unwrap()).collect();
         
         instructions.push(work_input);
     }
     //TODO apply instructions
+    for step in instructions {
+        let move_count = step[0];
+        
+            
+
+        
+
+
+    }
 
 }
 

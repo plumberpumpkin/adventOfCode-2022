@@ -36,4 +36,25 @@ fn main() {
 
     println!("Advent of Code - Day {}", day);
     day += 1;
+
+    println!("Advent of Code - Day {}", day);
+    day += 1;
+
+    println!("Advent of Code - Day {}", day);
+    day += 1;
+
+    println!("Advent of Code - Day {}", day);
+    day += 1;
+
+    println!("Advent of Code - Day {}", day);
+    day += 1;
+
+    println!("Advent of Code - Day {}", day);
+    day += 1;
+
+    println!("Advent of Code - Day {}", day);
+    day += 1;
+
+    println!("Advent of Code - Day {}", day);
+    
 }
