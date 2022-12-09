@@ -3,7 +3,6 @@ use std::io::BufReader;
 use std::fs::File;
 use std::io::BufRead;
 
-
 pub fn part_one() {
     const MOVING_INSTRUCTIONS: &str = r"C:\Users\User\GitHub\adventOfCode-2022\rustvent_of_code\src\inputs\moving_instructions.txt";
     const STARTING_POINT: &str = r"C:\Users\User\GitHub\adventOfCode-2022\rustvent_of_code\src\inputs\starting_point_day_five.txt";
@@ -33,20 +32,44 @@ pub fn part_one() {
         work_input_str.remove(0);
         //convert to int value
         let work_input: Vec<usize> = work_input_str.iter().map(|x| x.parse().unwrap()).collect();
-        
+
         instructions.push(work_input);
     }
     //TODO apply instructions
     for step in instructions {
         let move_count = step[0];
-        
-            
+        let start_stack_number = step[1] - 1;
+        let target_stack_number = step[2] - 1;
+        let mut start_stack: Vec<char> = supply_stack[start_stack_number].clone();
+        let mut target_stack: Vec<char> = supply_stack[target_stack_number].clone();
+        let mut moves_done: usize = 0;
 
-        
+        while moves_done < move_count {
+            let item = start_stack[0];
+            target_stack.insert(0, item);
+            start_stack.remove(0);
+            moves_done += 1;
+        }
 
-
+        let target_stack_to_remove = target_stack_number + 1;
+        let start_stack_to_remove = start_stack_number + 1;
+        //replace targetstack
+        supply_stack.insert(target_stack_number, target_stack);
+        supply_stack.remove(target_stack_to_remove);
+        //replace startstack
+        supply_stack.insert(start_stack_number, start_stack);
+        supply_stack.remove(start_stack_to_remove);
     }
 
+    //Create message for elfs
+    let mut first_crates: String = String::new();
+    let mut count = 0;
+    for stack in supply_stack {
+        let current_crate = stack[0];
+        first_crates.insert(count, current_crate);
+        count += 1;
+    }
+    println!("Fist crates are: {}", first_crates);
 }
 
 pub fn part_two() {}

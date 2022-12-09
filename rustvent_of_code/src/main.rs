@@ -56,5 +56,4 @@ fn main() {
     day += 1;
 
     println!("Advent of Code - Day {}", day);
-    
 }
