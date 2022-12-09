@@ -109,30 +109,22 @@ pub fn part_two() {
 
     for step in instructions {
         current_step += 1;
-        let moving_stack_size_index = step[0] - 1;
+        let moving_stack_size_index = step[0];
         let start_stack_number = step[1] - 1;
         let target_stack_number = step[2] - 1;
         let mut start_stack: Vec<char> = supply_stack[start_stack_number].clone();
         let mut target_stack: Vec<char> = supply_stack[target_stack_number].clone();
-        
 
         //apply instructions
         //move multiple items at a time according to instruction
-        if start_stack.len() > moving_stack_size_index {
-            let sub_stacks = start_stack.split_at(moving_stack_size_index);
+
+        let sub_stacks = start_stack.split_at(moving_stack_size_index);
         let mut moving_items = sub_stacks.0.to_vec();
         moving_items.reverse();
         for item in moving_items {
             target_stack.insert(0, item);
         }
         start_stack = sub_stacks.1.to_vec();
-        } else {
-            println!("Attempt ({}) is larger than stack ({}), step is {} ", step[0], start_stack.len(), current_step);
-        }
-        
-
-
-
 
         let target_stack_to_remove = target_stack_number + 1;
         let start_stack_to_remove = start_stack_number + 1;
@@ -143,7 +135,6 @@ pub fn part_two() {
         supply_stack.insert(start_stack_number, start_stack);
         supply_stack.remove(start_stack_to_remove);
     }
-
 
     //Create message for elfs
     let mut first_crates: String = String::new();

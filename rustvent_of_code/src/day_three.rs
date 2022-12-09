@@ -87,11 +87,6 @@ pub fn part_two() {
         }
     }
 
-    for item in &relevant_items {
-        println!("Item is {}", item);
-    }
-    println!("Length is {}", &relevant_items.len());
-
     //calculate priorities
     for item in &relevant_items {
         let mut prio = *item as u32;

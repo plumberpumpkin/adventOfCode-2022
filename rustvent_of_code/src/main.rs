@@ -1,9 +1,9 @@
 mod day_five;
 mod day_four;
 mod day_one;
+mod day_six;
 mod day_three;
 mod day_two;
-mod day_six;
 mod utils;
 
 fn main() {
@@ -44,19 +44,5 @@ fn main() {
     day += 1;
 
     println!("Advent of Code - Day {}", day);
-    day += 1;
-
-    println!("Advent of Code - Day {}", day);
-    day += 1;
-
-    println!("Advent of Code - Day {}", day);
-    day += 1;
-
-    println!("Advent of Code - Day {}", day);
-    day += 1;
-
-    println!("Advent of Code - Day {}", day);
-    day += 1;
-
-    println!("Advent of Code - Day {}", day);
+    
 }
