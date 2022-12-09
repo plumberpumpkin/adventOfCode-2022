@@ -3,6 +3,7 @@ mod day_four;
 mod day_one;
 mod day_three;
 mod day_two;
+mod day_six;
 mod utils;
 
 fn main() {
@@ -36,6 +37,8 @@ fn main() {
 
     println!("Advent of Code - Day {}", day);
     day += 1;
+    day_six::part_one();
+    day_six::part_two();
 
     println!("Advent of Code - Day {}", day);
     day += 1;
